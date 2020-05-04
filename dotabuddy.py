@@ -6,8 +6,7 @@ import sys
 import pyperclip
 
 def usage():
-    print('Usage: py dotabuddy.py <roshan death time>')
-    print('Example: py dotabuddy.py 3430')
+    print('Usage: py dotabuddy.py')
 
 def getRoshTime(timeOfDeath):
     roshRespawnLow = convertToTime(str(int(timeOfDeath) + 800))
@@ -24,8 +23,4 @@ def convertToTime(time):
         ret = '{}:{}'.format(time[0:2], time[2:4])
     return ret
 
-n = len(sys.argv)
-if n > 1:
-    pyperclip.copy(getRoshTime(sys.argv[1]))
-else:
-    usage()
+pyperclip.copy(getRoshTime(pyperclip.paste()))
